@@ -30,7 +30,8 @@ window.__ModuleLoader__.load({
       operational: 'var(--dsw-alias-state-success-primary)',
       maintenance: 'var(--dsw-alias-brand-primary)',
       degraded: 'var(--dsw-alias-state-warn-primary)',
-      partial_outage: 'var(--dsw-alias-state-error-primary)',
+      // A partial outage stays on the warm side of red so it never reads as a full outage.
+      partial_outage: 'color-mix(in srgb, var(--dsw-alias-state-error-primary) 52%, var(--dsw-alias-state-warn-primary))',
       full_outage: 'var(--dsw-alias-state-error-primary)',
       unknown: 'var(--dsw-alias-state-idle-primary)',
     }

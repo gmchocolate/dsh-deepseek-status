@@ -182,6 +182,9 @@ assert.equal(nodes(closed, 'dss-cell').length, 10, 'the lamp renders ten lit seg
 for (const [name, state, expectedColor] of [
   ['operational', { data: operational, failed: false }, 'var(--dsw-alias-state-success-primary)'],
   ['degraded', { data: snapshot, failed: false }, 'var(--dsw-alias-state-warn-primary)'],
+  ['partial outage', { data: { ...snapshot, overall: 'partial_outage' }, failed: false },
+    'color-mix(in srgb, var(--dsw-alias-state-error-primary) 52%, var(--dsw-alias-state-warn-primary))'],
+  ['full outage', { data: { ...snapshot, overall: 'full_outage' }, failed: false }, 'var(--dsw-alias-state-error-primary)'],
   ['unknown', { data: null, failed: true }, 'var(--dsw-alias-state-idle-primary)'],
 ]) {
   const tree = render([state, false, null], { wide: true })

@@ -10,6 +10,19 @@ public status page at <https://status.deepseek.com/>.
 - **One line**: install it and the Harness sidebar grows a live DeepSeek service-status lamp
   you can read at a glance and inspect by hovering.
 
+## Screenshots
+
+![The lamp in a sidebar footer next to the hover card, dark theme](docs/preview-dark.png)
+
+![The same preview in the light theme](docs/preview-light.png)
+
+![The five lamp states: operational, maintenance, degraded, partial outage, full outage](docs/lamp-states.png)
+
+> These images are **renders produced from the plugin's own stylesheet**, filled with a real
+> status snapshot taken on 2026-11-03 17:17 (UTC+8) during a degraded incident — the sidebar
+> around the lamp is an abstract sketch, the card is the component's real markup. They are not
+> window captures of a running Harness, which this environment could not produce.
+
 ## Install
 
 ### From GitHub (source install)
@@ -39,9 +52,9 @@ package directory as `target`).
 - A **light-tube style lamp** in the sidebar footer: a glass bezel holding ten lit segments,
   with a soft coloured bloom and a faint spill of light below it — about 34px long in the
   wide sidebar and 25px in the collapsed 56px rail, seated at the left edge of the footer row.
-- **Colour = state**: green operational · blue maintenance · amber degraded · red partial or
-  full outage · grey status unavailable. Amber breathes slowly, red pulses faster, and
-  `prefers-reduced-motion` stops both.
+- **Colour = state**: green operational · blue maintenance · amber degraded · orange-red
+  partial outage · red full outage · grey status unavailable. Amber breathes slowly, red
+  pulses faster, and `prefers-reduced-motion` stops both.
 - **Hover (or keyboard-focus) the lamp** for a card with the overall state, every service
   component grouped by section with its own state, each active incident or maintenance window
   with its latest update, affected components and update time, plus the upstream source name.
@@ -143,6 +156,7 @@ height set the tube's proportions).
 | `locale/*.json` | Plugin Manager display metadata. |
 | `icon.svg` | Plugin icon (original artwork). |
 | `test/*.mjs` | Offline tests plus an optional live smoke test. |
+| `docs/*.png` | README previews rendered from the plugin stylesheet. |
 
 ## Limits
 
