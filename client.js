@@ -164,13 +164,16 @@ window.__ModuleLoader__.load({
 .dss-trigger:hover, .dss-root[data-open='true'] .dss-trigger { background: color-mix(in srgb, var(--dsw-alias-label-primary) 8%, transparent); }
 .dss-trigger:focus-visible { box-shadow: 0 0 0 2px color-mix(in srgb, var(--dsw-alias-brand-primary) 45%, transparent); }
 /* The lamp: a glass tube of lit segments with a soft bloom and a faint spill below. */
-.dss-lamp { position: relative; flex: none; display: inline-flex; align-items: center; gap: 2px; box-sizing: border-box; padding: 4px 5px; border-radius: 999px; background: linear-gradient(180deg, color-mix(in srgb, var(--dsw-alias-label-primary) 15%, transparent), color-mix(in srgb, var(--dsw-alias-label-primary) 7%, transparent)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--dsw-alias-label-primary) 17%, transparent), inset 0 1px 0 color-mix(in srgb, var(--dsw-alias-label-primary) 14%, transparent); }
-.dss-lamp::before { content: ''; position: absolute; inset: -10px -14px; border-radius: 999px; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--dss-color) 58%, transparent), transparent 72%); filter: blur(9px); opacity: .9; pointer-events: none; }
+.dss-lamp { position: relative; flex: none; display: inline-flex; align-items: center; gap: 1.5px; box-sizing: border-box; padding: 3px 4px; border-radius: 999px; background: linear-gradient(180deg, color-mix(in srgb, var(--dsw-alias-label-primary) 15%, transparent), color-mix(in srgb, var(--dsw-alias-label-primary) 7%, transparent)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--dsw-alias-label-primary) 17%, transparent), inset 0 1px 0 color-mix(in srgb, var(--dsw-alias-label-primary) 14%, transparent); }
+.dss-lamp::before { content: ''; position: absolute; inset: -8px -11px; border-radius: 999px; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--dss-color) 58%, transparent), transparent 72%); filter: blur(8px); opacity: .9; pointer-events: none; }
 .dss-lamp::after { content: ''; position: absolute; left: 4px; right: 4px; top: calc(100% + 1px); height: 10px; border-radius: 999px; background: linear-gradient(180deg, color-mix(in srgb, var(--dss-color) 45%, transparent), transparent 88%); filter: blur(5px); opacity: .55; pointer-events: none; }
-.dss-lamp-core { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 2px; filter: drop-shadow(0 0 3px var(--dss-glow)) drop-shadow(0 0 8px color-mix(in srgb, var(--dss-color) 42%, transparent)); }
-.dss-cell { display: inline-block; width: 3.5px; height: 10px; border-radius: 2px; background: var(--dss-color); box-shadow: 0 0 2px var(--dss-glow), inset 0 0 1px color-mix(in srgb, white 40%, transparent); }
-.dss-root[data-wide='false'] .dss-cell:nth-child(n+7) { display: none; }
+.dss-lamp-core { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 1.5px; filter: drop-shadow(0 0 3px var(--dss-glow)) drop-shadow(0 0 8px color-mix(in srgb, var(--dss-color) 42%, transparent)); }
+.dss-cell { display: inline-block; width: 3px; height: 10px; border-radius: 2px; background: var(--dss-color); box-shadow: 0 0 2px var(--dss-glow), inset 0 0 1px color-mix(in srgb, white 40%, transparent); }
+.dss-cell:nth-child(n+7) { display: none; }
+.dss-root[data-wide='false'] .dss-cell:nth-child(n+5) { display: none; }
 .dss-root[data-wide='false'] .dss-trigger { padding: 0 4px; }
+/* Ask the footer row to seat the lamp on its right edge; harmless when the row is content-width. */
+.dss-root[data-wide='true'] { margin-inline-start: auto; }
 @keyframes dss-breathe { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
 @keyframes dss-alarm { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
 .dss-root[data-state='degraded'] .dss-lamp::before, .dss-root[data-state='maintenance'] .dss-lamp::before { animation: dss-breathe 3.4s ease-in-out infinite; }

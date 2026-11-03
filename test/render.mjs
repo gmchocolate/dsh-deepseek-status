@@ -197,6 +197,13 @@ for (const wideSidebar of [true, false]) {
   assert.equal(nodes(tree, 'dss-lamp').length, 1, 'the lamp must render')
 }
 
+// Lamp geometry stays compact: six lit segments in the wide sidebar, four in the rail.
+const css = text(closed).find((line) => line.includes('.dss-cell')) ?? ''
+assert.ok(css.includes('.dss-cell { display: inline-block; width: 3px; height: 10px;'), 'the lamp segment size changed')
+assert.ok(css.includes('.dss-cell:nth-child(n+7) { display: none; }'), 'the wide lamp must cap at six segments')
+assert.ok(css.includes(".dss-root[data-wide='false'] .dss-cell:nth-child(n+5) { display: none; }"), 'the rail lamp must cap at four segments')
+assert.ok(css.includes(".dss-root[data-wide='true'] { margin-inline-start: auto; }"), 'the wide lamp should ask for right alignment')
+
 // ---- the hover card -----------------------------------------------------------
 const opened = render([{ data: snapshot, failed: false }, true, { left: 250, bottom: 40 }], { wide: true })
 const lines = text(opened)
