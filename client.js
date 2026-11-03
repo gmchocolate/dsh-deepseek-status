@@ -163,7 +163,6 @@ window.__ModuleLoader__.load({
 .dss-trigger { box-sizing: border-box; display: inline-flex; align-items: center; gap: 7px; height: 28px; max-width: 100%; padding: 0 7px; margin: 0; border: 0; border-radius: 9px; background: transparent; color: var(--dsw-alias-label-secondary); font: inherit; font-size: 12px; line-height: 1; cursor: default; user-select: none; outline: none; }
 .dss-trigger:hover, .dss-root[data-open='true'] .dss-trigger { background: color-mix(in srgb, var(--dsw-alias-label-primary) 8%, transparent); }
 .dss-trigger:focus-visible { box-shadow: 0 0 0 2px color-mix(in srgb, var(--dsw-alias-brand-primary) 45%, transparent); }
-.dss-caption { flex: 0 1 auto; min-width: 0; max-width: 56px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; }
 /* The lamp: a glass tube of lit segments with a soft bloom and a faint spill below. */
 .dss-lamp { position: relative; flex: none; display: inline-flex; align-items: center; gap: 2px; box-sizing: border-box; padding: 4px 5px; border-radius: 999px; background: linear-gradient(180deg, color-mix(in srgb, var(--dsw-alias-label-primary) 15%, transparent), color-mix(in srgb, var(--dsw-alias-label-primary) 7%, transparent)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--dsw-alias-label-primary) 17%, transparent), inset 0 1px 0 color-mix(in srgb, var(--dsw-alias-label-primary) 14%, transparent); }
 .dss-lamp::before { content: ''; position: absolute; inset: -10px -14px; border-radius: 999px; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--dss-color) 58%, transparent), transparent 72%); filter: blur(9px); opacity: .9; pointer-events: none; }
@@ -390,8 +389,7 @@ window.__ModuleLoader__.load({
       },
       h('span', { className: 'dss-lamp', 'aria-hidden': 'true' },
         h('span', { className: 'dss-lamp-core' },
-          LAMP_CELLS.map((index) => h('span', { className: 'dss-cell', key: index })))),
-      wide ? h('span', { className: 'dss-caption' }, shortLabel) : null),
+          LAMP_CELLS.map((index) => h('span', { className: 'dss-cell', key: index }))))),
       card)
     }
 

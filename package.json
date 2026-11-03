@@ -1,6 +1,6 @@
 {
   "name": "@local/dsh-deepseek-status",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "A glowing DeepSeek platform status lamp for the DeepSeek Harness sidebar, sourced from status.deepseek.com.",
   "exports": {

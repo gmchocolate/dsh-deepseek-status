@@ -188,11 +188,14 @@ for (const [name, state, expectedColor] of [
   assert.equal(tree.props.style['--dss-color'], expectedColor, `lamp color for ${name}`)
 }
 
-// The wide sidebar shows the caption; the collapsed rail shows the lamp alone.
-assert.deepEqual(text(render([{ data: snapshot, failed: false }, false, null], { wide: true })).slice(-1), ['性能下降'])
-const railText = text(render([{ data: snapshot, failed: false }, false, null], { wide: false }))
-assert.ok(railText.every((line) => line.startsWith('.') || line.startsWith('/*') || line.startsWith('@') || line.includes('{')),
-  'the collapsed rail must not render a caption')
+// The lamp is the only always-visible status cue: no status text in either sidebar state.
+for (const wideSidebar of [true, false]) {
+  const tree = render([{ data: snapshot, failed: false }, false, null], { wide: wideSidebar })
+  assert.equal(nodes(tree, 'dss-caption').length, 0, `caption must not render (wide=${String(wideSidebar)})`)
+  const statusText = text(tree).filter((line) => line === '性能下降' || line === 'Degraded')
+  assert.deepEqual(statusText, [], `status text must stay out of the sidebar (wide=${String(wideSidebar)})`)
+  assert.equal(nodes(tree, 'dss-lamp').length, 1, 'the lamp must render')
+}
 
 // ---- the hover card -----------------------------------------------------------
 const opened = render([{ data: snapshot, failed: false }, true, { left: 250, bottom: 40 }], { wide: true })
