@@ -1,0 +1,56 @@
+{
+  "name": "@local/dsh-deepseek-status",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A glowing DeepSeek platform status lamp for the DeepSeek Harness sidebar, sourced from status.deepseek.com.",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "harness-plugin",
+    "bundle",
+    "status",
+    "statuspage",
+    "deepseek"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmchocolate/dsh-deepseek-status.git"
+  },
+  "homepage": "https://github.com/gmchocolate/dsh-deepseek-status#readme",
+  "bugs": {
+    "url": "https://github.com/gmchocolate/dsh-deepseek-status/issues"
+  },
+  "scripts": {
+    "test": "node test/parse-flight.mjs && node test/normalize.mjs && node test/render.mjs",
+    "test:live": "node test/live.mjs"
+  }
+}

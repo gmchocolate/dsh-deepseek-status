@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "DeepSeek 服务状态灯",
+    "description": "在左侧栏底部显示 DeepSeek 线上服务状态指示灯，鼠标悬停即可查看全部服务组件与进行中的事件，数据来自 status.deepseek.com。"
+  }
+}

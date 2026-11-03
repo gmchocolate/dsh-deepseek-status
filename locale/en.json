@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "DeepSeek Service Status",
+    "description": "Shows the live DeepSeek platform status as a lamp in the sidebar footer; hover it for every component and the active incidents, sourced from status.deepseek.com."
+  }
+}
