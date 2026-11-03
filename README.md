@@ -38,7 +38,7 @@ package directory as `target`).
 
 - A **light-tube style lamp** in the sidebar footer: a glass bezel holding ten lit segments,
   with a soft coloured bloom and a faint spill of light below it — about 34px long in the
-  wide sidebar, 25px in the collapsed 56px rail, and seated at the right edge of the footer row.
+  wide sidebar and 25px in the collapsed 56px rail, seated at the left edge of the footer row.
 - **Colour = state**: green operational · blue maintenance · amber degraded · red partial or
   full outage · grey status unavailable. Amber breathes slowly, red pulses faster, and
   `prefers-reduced-motion` stops both.

@@ -172,8 +172,8 @@ window.__ModuleLoader__.load({
 .dss-cell:nth-child(n+7) { display: none; }
 .dss-root[data-wide='false'] .dss-cell:nth-child(n+5) { display: none; }
 .dss-root[data-wide='false'] .dss-trigger { padding: 0 4px; }
-/* Ask the footer row to seat the lamp on its right edge; harmless when the row is content-width. */
-.dss-root[data-wide='true'] { margin-inline-start: auto; }
+/* Seat the lamp on the left edge of the footer row (wide sidebar only, so the rail keeps its centred column). */
+.dss-root[data-wide='true'] { margin-inline-start: 0; margin-inline-end: auto; }
 @keyframes dss-breathe { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
 @keyframes dss-alarm { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
 .dss-root[data-state='degraded'] .dss-lamp::before, .dss-root[data-state='maintenance'] .dss-lamp::before { animation: dss-breathe 3.4s ease-in-out infinite; }
